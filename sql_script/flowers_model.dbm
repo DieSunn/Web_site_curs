@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.2" last-position="0,0" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<database name="flowers_db" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="flowers" layer="0" collapse-mode="2" max-obj-count="4">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="60" y="360"/>
+	<column name="flower_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name">
+		<type name="text" length="0"/>
+	</column>
+	<column name="color">
+		<type name="text" length="0"/>
+	</column>
+	<column name="price">
+		<type name="decimal" length="0"/>
+	</column>
+	<constraint name="flowers_pk" type="pk-constr" table="public.flowers">
+		<columns names="flower_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="stock" layer="0" collapse-mode="2" max-obj-count="3">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="460" y="340"/>
+	<column name="stock_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="stock_quantity">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="наличие_pk" type="pk-constr" table="public.stock">
+		<columns names="stock_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="flower_id" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="flowers" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="flowers_has_many_stock" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}"
+	 custom-color="#0c8f14"
+	 src-table="public.flowers"
+	 dst-table="public.stock"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-0.997504" y="-9.1156"/>
+	</label>
+</relationship>
+
+<table name="orders" layer="0" collapse-mode="2" max-obj-count="6">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="280" y="100"/>
+	<column name="order_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="customer_name">
+		<type name="text" length="0"/>
+	</column>
+	<column name="order_date">
+		<type name="date" length="0"/>
+	</column>
+	<column name="quantity">
+		<type name="smallint" length="0"/>
+	</column>
+	<constraint name="orders_pk" type="pk-constr" table="public.orders">
+		<columns names="order_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="flower_id" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="flowers" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="цветы_has_many_заказы" type="rel1n" layer="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}"
+	 custom-color="#e96107"
+	 src-table="public.flowers"
+	 dst-table="public.orders"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="63.0567" y="-25.2857"/>
+	</label>
+</relationship>
+
+</dbmodel>

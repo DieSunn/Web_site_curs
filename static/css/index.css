@@ -1,0 +1,117 @@
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f3f3f3; /* Светлый фон */
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.background .pic {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px) brightness(90%) contrast(120%);
+}
+
+.shape:first-child {
+    background: linear-gradient(
+        #ad185d,
+        #f623c8
+    );
+    left: -80px;
+    top: -80px;
+}
+
+.shape:last-child {
+    background: linear-gradient(
+        to right,
+        #2facff,
+        #19c5f0
+    );
+    right: -30px;
+    bottom: -80px;
+}
+
+form {
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, 1); /* Полупрозрачный белый фон */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Более прозрачные границы */
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.2); /* Мягкая тень */
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Nunito', sans-serif;
+    color: #080710; /* Темный текст */
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+    color: #080710; /* Темный заголовок */
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #080710; /* Темный текст меток */
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(8, 7, 16, 0.1); /* Более прозрачный серый фон */
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: #080710; /* Темный текст в полях */
+}
+
+::placeholder {
+    color: #666; /* Серый цвет placeholder'ов */
+}
+
+button {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #080710; /* Темная кнопка */
+    color: #ffffff; /* Белый текст кнопки */
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
